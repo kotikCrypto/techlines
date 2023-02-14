@@ -1,13 +1,25 @@
-import { Box, Flex, HStack, Link, IconButton, Icon, Text, useDisclosure, Button, Stack, useColorModeValue, useColorMode } from "@chakra-ui/react"
-import { Link as ReactLink } from "react-router-dom"
-import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons"
-import { GiTechnoHeart } from "react-icons/gi"
-
+import {
+  Box,
+  Flex,
+  HStack,
+  Link,
+  IconButton,
+  Icon,
+  Text,
+  useDisclosure,
+  Button,
+  Stack,
+  useColorModeValue,
+  useColorMode,
+} from "@chakra-ui/react";
+import { Link as ReactLink } from "react-router-dom";
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { GiTechnoHeart } from "react-icons/gi";
 
 const links = [
   { linkName: "Products", path: "/products" },
-  { linkName: "ShoppingCart", path: "/cart" }
-]
+  { linkName: "ShoppingCart", path: "/cart" },
+];
 
 const NavLink = ({ path, children }) => (
   <Link
@@ -18,16 +30,16 @@ const NavLink = ({ path, children }) => (
     rounded="md"
     _hover={{
       textDecortion: "none",
-      bg: useColorModeValue("gray.200", "gray.700")
+      bg: useColorModeValue("gray.200", "gray.700"),
     }}
   >
     {children}
   </Link>
-)
+);
 
 const Navbar = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure()
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -40,29 +52,21 @@ const Navbar = () => {
         />
 
         <HStack>
-
           <Link as={ReactLink} to="/">
             <Flex alignItems="center">
-              <Icon
-                as={GiTechnoHeart}
-                h={6}
-                w={6}
-                color="orange.400"
-              />
+              <Icon as={GiTechnoHeart} h={6} w={6} color="orange.400" />
 
               <Text fontWeight="extrabold">Tech Lines</Text>
             </Flex>
           </Link>
 
-          <HStack as="nav" spacing={4} display={{base: "none", md: "flex"}}>
-            {links.map(link => (
-              <NavLink key={link.linkName} path={link.path}
-              >
+          <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
+            {links.map((link) => (
+              <NavLink key={link.linkName} path={link.path}>
                 {link.linkName}
               </NavLink>
             ))}
           </HStack>
-
         </HStack>
         <Flex alignItems="center">
           <NavLink>
@@ -88,7 +92,7 @@ const Navbar = () => {
             as={ReactLink}
             to="/registration"
             m={2}
-            display={{base: "none", md:"inline-flex"}}
+            display={{ base: "none", md: "inline-flex" }}
             fontSize="sm"
             fontWeight={600}
             _hover={{ bg: "orange.400" }}
@@ -97,22 +101,24 @@ const Navbar = () => {
           >
             Sign In
           </Button>
-
         </Flex>
       </Flex>
-      {isOpen ? (<Box pb={4} display={{ md: "none" }}>
-        <Stack as="nav" spacing={4}>
-          {links.map(link => (
-            <NavLink key={link.linkName} path={link.path}
-            >
-              {link.linkName}
+      {isOpen ? (
+        <Box pb={4} display={{ md: "none" }}>
+          <Stack as="nav" spacing={4}>
+            {links.map((link) => (
+              <NavLink key={link.linkName} path={link.path}>
+                {link.linkName}
+              </NavLink>
+            ))}
+            <NavLink key="sign up" path="/registration">
+              Sign Up
             </NavLink>
-          ))}
-          <NavLink key="sign up" path="/registration">Sign Up</NavLink>
-        </Stack>
-      </Box>) : null}
+          </Stack>
+        </Box>
+      ) : null}
     </Box>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
