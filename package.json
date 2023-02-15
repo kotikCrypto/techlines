@@ -1,5 +1,27 @@
 {
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.17"
-  }
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.1"
+  },
+  "name": "techlines",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kotikCrypto/techlines.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kotikCrypto/techlines/issues"
+  },
+  "homepage": "https://github.com/kotikCrypto/techlines#readme",
+  "description": ""
 }
